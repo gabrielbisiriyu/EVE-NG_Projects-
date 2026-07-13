@@ -2,36 +2,146 @@
 
 ## Overview
 
-Project Atlas is a realistic enterprise network built in EVE-NG to demonstrate practical networking, server administration, security, and automation skills.
+Project Atlas is a realistic enterprise network built in EVE-NG to demonstrate practical networking, Linux server administration, network security, and automation skills.
 
-The project simulates the design, deployment, and operation of a growing enterprise network using Cisco IOL devices and Ubuntu Server.
+The project simulates the design, deployment, and operation of a modern enterprise network using Cisco IOL devices, Ubuntu Server, and enterprise networking best practices.
 
-## Technologies
+The goal of this project is to build a production-inspired network that goes beyond CCNA-level configuration while remaining practical, well documented, and interview-ready.
+
+---
+
+# Current Topology
+
+![Current Topology](screenshots/topology/latest-topology.png)
+
+> **Note:** The topology evolves as new enterprise technologies are implemented. The image above always reflects the latest version of the network.
+
+---
+
+# Technologies
+
+### Networking
 
 - Cisco IOL Layer 2
 - Cisco IOL Layer 3
-- ASA firewall
-- Ubuntu Server
 - EVE-NG
 
-## Planned Features
+### Servers
+
+- Ubuntu Server
+
+### Security
+
+- Cisco ASA Firewall
+
+### Automation
+
+- Python
+- Ansible
+
+---
+
+# Enterprise Features
+
+## Core Networking
 
 - VLANs
-- Layer 3 Switching
+- Trunking
 - Inter-VLAN Routing
-- SSH Management
+- Static Routing
+- OSPF
+- EtherChannel
+- HSRP
+
+## Infrastructure Services
+
 - DHCP
 - DNS
-- File Server (Samba)
-- Web Server
-- NAT
+- Apache Web Server
+- Samba File Server
+
+## Security
+
+- SSH Management
+- Management VLAN
 - ACLs
-- Site-to-Site VPN
-- Firewall
-- Ansible Automation
+- NAT/PAT
+- DHCP Snooping
+- Dynamic ARP Inspection
+- Port Security
+- Cisco ASA Firewall
+
+## VPN
+
+- GRE over IPsec
+
+## Automation
+
 - Python Automation
-- Network Monitoring
+- Ansible Playbooks
 
-## Current Status
+---
 
-Version 1.0 - Campus Foundation (In Progress)
+# Current Status
+
+**Current Release:** **v0.2.0**
+
+## Completed
+
+- ✅ Enterprise topology created
+- ✅ VLAN implementation
+- ✅ Trunk configuration
+- ✅ Inter-VLAN routing
+- ✅ Management VLAN
+- ✅ Secure SSH management
+- ✅ Static routing
+- ✅ WAN connectivity
+- ✅ Internet access
+- ✅ Ubuntu Server deployment
+
+## In Progress
+
+- 🔄 Enterprise Services
+  - DHCP Server
+  - DNS Server
+  - Apache Web Server
+  - Samba File Server
+
+---
+
+# Project Structure
+
+```
+project-atlas/
+│
+├── automation/
+├── configs/
+├── docs/
+├── screenshots/
+├── servers/
+├── CHANGELOG.md
+└── README.md
+```
+
+---
+
+# Documentation
+
+Additional documentation can be found in the **docs/** directory.
+
+- VLAN Plan
+- IP Addressing Plan
+
+---
+
+# Project Goals
+
+- Build a realistic enterprise campus network.
+- Apply industry-standard network design principles.
+- Document every major implementation milestone.
+
+---
+
+# Project Status
+
+🚧 Active Development
