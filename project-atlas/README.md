@@ -84,7 +84,7 @@ The goal of this project is to build a production-inspired network that goes bey
 
 # Current Status
 
-**Current Release:** **v0.2.0**
+**Current Release:** **v0.3.0**
 
 ## Completed
 
@@ -98,15 +98,19 @@ The goal of this project is to build a production-inspired network that goes bey
 - ✅ WAN connectivity
 - ✅ Internet access
 - ✅ Ubuntu Server deployment
+- ✅ Enterprise DHCP Server
+- ✅ Enterprise DNS Server
+- ✅ Apache Web Server
+- ✅ Samba File Server
+
+
 
 ## In Progress
 
-- 🔄 Enterprise Services
-  - DHCP Server
-  - DNS Server
-  - Apache Web Server
-  - Samba File Server
-
+- 🔄 Enterprise High Availability
+  - EtherChannel
+  - Rapid Spanning Tree
+  - HSRP
 ---
 
 # Project Structure
