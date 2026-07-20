@@ -5,15 +5,15 @@ service timestamps log datetime msec
 service password-encryption
 service compress-config
 !
-hostname HQ-SW1
+hostname hq-asw1
 !
 boot-start-marker
 boot-end-marker
 !
 !
-enable secret 5 $1$/E5U$EQdOK.Le9xJnmkll9lDh9/
+enable secret 5 $1$k9Y/$aNmH9ymp..PlqCGfQ2vGQ/
 !
-username ennygaebs secret 5 $1$liLY$2azlvbubT8xVipeA1eDR90
+username ennygaebs secret 5 $1$z6T5$xzB7fneEE45FZAp/ncKnV.
 no aaa new-model
 !
 !
@@ -48,24 +48,22 @@ spanning-tree extend system-id
 !
 !
 interface Ethernet0/0
- no switchport
- ip address 10.255.255.1 255.255.255.252
+ switchport trunk allowed vlan 50,95
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
 !
 interface Ethernet0/1
  switchport trunk allowed vlan 50,95
+ switchport trunk encapsulation dot1q
  switchport trunk native vlan 99
+ switchport mode trunk
 !
 interface Ethernet0/2
- switchport trunk allowed vlan 10,20,30,40,95
- switchport trunk encapsulation dot1q
- switchport trunk native vlan 99
- switchport mode trunk
+ switchport access vlan 50
+ switchport mode access
 !
 interface Ethernet0/3
- switchport trunk allowed vlan 10,20,30,40,95
- switchport trunk encapsulation dot1q
- switchport trunk native vlan 99
- switchport mode trunk
 !
 interface Ethernet1/0
 !
@@ -106,10 +104,13 @@ interface Ethernet5/1
 interface Ethernet5/2
 !
 interface Ethernet5/3
+ switchport access vlan 95
+ switchport mode access
 !
 interface Serial6/0
  no ip address
  shutdown
+ no fair-queue
  serial restart-delay 0
 !
 interface Serial6/1
@@ -127,30 +128,14 @@ interface Serial6/3
  shutdown
  serial restart-delay 0
 !
-interface Vlan10
- ip address 10.10.10.254 255.255.255.0
-!
-interface Vlan20
- ip address 10.10.20.254 255.255.255.0
-!
-interface Vlan30
- ip address 10.10.30.254 255.255.255.0
-!
-interface Vlan40
- ip address 10.10.40.254 255.255.255.0
-!
-interface Vlan50
- ip address 10.10.50.254 255.255.255.0
-!
 interface Vlan95
- ip address 10.10.95.1 255.255.255.0
+ ip address 10.10.95.2 255.255.255.0
 !
 ip forward-protocol nd
 !
 ip http server
 ip http secure-server
 !
-ip route 0.0.0.0 0.0.0.0 10.255.255.2
 ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
 ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
 !
@@ -176,7 +161,7 @@ banner motd ^C
 ^^C
 !
 line con 0
- password 7 0215015C0E0A1A2D59
+ password 7 04480E010A2D59421C
  logging synchronous
  login
 line aux 0

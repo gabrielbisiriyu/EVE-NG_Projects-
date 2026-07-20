@@ -1,8 +1,24 @@
 ﻿# Changelog
 
-## Version 0.3.0
+## Version 0.4.0
 
-### Added
+### Campus Core Redundancy & High Availability
+
+- Redesigned the campus topology into a dual-distribution architecture
+- Added HQ-DSW1 and HQ-DSW2 as redundant distribution switches
+- Implemented Layer 3 EtherChannel (LACP) between distribution switches
+- Configured trunked Port-Channel carrying all enterprise VLANs
+- Dual-homed all access switches to both distribution switches
+- Implemented HSRP gateway redundancy across user VLANs
+- Configured HSRP load balancing between distribution switches
+- Updated DNS records for renamed infrastructure devices
+- Updated enterprise topology documentation
+- Added management IP addresses for new infrastructure devices
+
+---
+
+
+## Version 0.3.0
 
 #### Enterprise Infrastructure Services
 
@@ -26,7 +42,7 @@
 
 ## Version 0.2.0
 
-### Added
+### Enterprise Routing & Network Foundation
 
 * Configured management VLAN (VLAN 95)
 * Configured Switch Virtual Interfaces (SVIs) for inter-VLAN routing
@@ -43,7 +59,7 @@
 
 ## Version 0.1.0
 
-### Added
+### Initial Enterprise Network Deployment
 
 * Created Project Atlas repository
 * Built headquarters initial topology in EVE-NG
@@ -51,4 +67,4 @@
 * Defined VLAN plan
 * Configured VLANs
 * Configured trunk links
-* Configured basic switch security
+

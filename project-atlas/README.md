@@ -102,15 +102,19 @@ The goal of this project is to build a production-inspired network that goes bey
 - ✅ Enterprise DNS Server
 - ✅ Apache Web Server
 - ✅ Samba File Server
-
+- ✅ Layer 3 EtherChannel (LACP)
+- ✅ HSRP Gateway Redundancy
+- ✅ Dual-homed Access Layer
 
 
 ## In Progress
 
-- 🔄 Enterprise High Availability
-  - EtherChannel
-  - Rapid Spanning Tree
-  - HSRP
+- 🔄 Enterprise Security
+  - DHCP Snooping
+  - Dynamic ARP Inspection (DAI)
+  - Port Security
+  - BPDU Guard
+  - Storm Control
 ---
 
 # Project Structure

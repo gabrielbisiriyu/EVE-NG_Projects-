@@ -5,15 +5,15 @@ service timestamps log datetime msec
 service password-encryption
 service compress-config
 !
-hostname HQ-SW2
+hostname hq-dsw1
 !
 boot-start-marker
 boot-end-marker
 !
 !
-enable secret 5 $1$k9Y/$aNmH9ymp..PlqCGfQ2vGQ/
+enable secret 5 $1$/E5U$EQdOK.Le9xJnmkll9lDh9/
 !
-username ennygaebs secret 5 $1$z6T5$xzB7fneEE45FZAp/ncKnV.
+username ennygaebs secret 5 $1$liLY$2azlvbubT8xVipeA1eDR90
 no aaa new-model
 !
 !
@@ -32,6 +32,7 @@ no ipv6 cef
 !
 spanning-tree mode pvst
 spanning-tree extend system-id
+spanning-tree vlan 50 priority 24576
 !
 !
 !
@@ -46,28 +47,52 @@ spanning-tree extend system-id
 !
 !
 !
+!
+interface Port-channel1
+ no switchport
+ ip address 10.255.255.9 255.255.255.252
 !
 interface Ethernet0/0
+ no switchport
+ ip address 10.255.255.1 255.255.255.252
+!
+interface Ethernet0/1
  switchport trunk allowed vlan 50,95
  switchport trunk encapsulation dot1q
  switchport trunk native vlan 99
  switchport mode trunk
 !
-interface Ethernet0/1
- switchport access vlan 50
- switchport mode access
-!
 interface Ethernet0/2
+ switchport trunk allowed vlan 10,20,30,40,95
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
 !
 interface Ethernet0/3
+ switchport trunk allowed vlan 10,20,30,40,95
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
 !
 interface Ethernet1/0
+ no switchport
+ no ip address
+ channel-group 1 mode active
 !
 interface Ethernet1/1
+ no switchport
+ no ip address
+ channel-group 1 mode active
 !
 interface Ethernet1/2
+ no switchport
+ no ip address
+ channel-group 1 mode active
 !
 interface Ethernet1/3
+ no switchport
+ no ip address
+ channel-group 1 mode active
 !
 interface Ethernet2/0
 !
@@ -100,13 +125,10 @@ interface Ethernet5/1
 interface Ethernet5/2
 !
 interface Ethernet5/3
- switchport access vlan 95
- switchport mode access
 !
 interface Serial6/0
  no ip address
  shutdown
- no fair-queue
  serial restart-delay 0
 !
 interface Serial6/1
@@ -124,14 +146,55 @@ interface Serial6/3
  shutdown
  serial restart-delay 0
 !
+interface Vlan10
+ ip address 10.10.10.252 255.255.255.0
+ ip helper-address 10.10.50.10
+ standby version 2
+ standby 0 priority 200
+ standby 1 ip 10.10.10.254
+ standby 1 priority 200
+!
+interface Vlan20
+ ip address 10.10.20.252 255.255.255.0
+ ip helper-address 10.10.50.10
+ standby version 2
+ standby 2 ip 10.10.20.254
+ standby 2 priority 200
+!
+interface Vlan30
+ ip address 10.10.30.252 255.255.255.0
+ ip helper-address 10.10.50.10
+ standby version 2
+ standby 3 ip 10.10.30.254
+!
+interface Vlan40
+ ip address 10.10.40.252 255.255.255.0
+ ip helper-address 10.10.50.10
+ standby version 2
+ standby 4 ip 10.10.40.254
+!
+interface Vlan50
+ ip address 10.10.50.252 255.255.255.0
+ standby version 2
+ standby 5 ip 10.10.50.254
+ standby 5 priority 200
+ standby 5 preempt
+!
 interface Vlan95
- ip address 10.10.95.2 255.255.255.0
+ ip address 10.10.95.11 255.255.255.0
+ standby version 2
+ standby 0 priority 200
+ standby 95 ip 10.10.95.1
+!
+router ospf 1
 !
 ip forward-protocol nd
 !
 ip http server
 ip http secure-server
 !
+ip route 0.0.0.0 0.0.0.0 10.255.255.2
+ip route 11.11.11.11 255.255.255.255 10.255.255.2
 ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
 ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
 !
@@ -157,7 +220,7 @@ banner motd ^C
 ^^C
 !
 line con 0
- password 7 04480E010A2D59421C
+ password 7 0215015C0E0A1A2D59
  logging synchronous
  login
 line aux 0
