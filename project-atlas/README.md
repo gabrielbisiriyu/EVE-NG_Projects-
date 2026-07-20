@@ -84,7 +84,7 @@ The goal of this project is to build a production-inspired network that goes bey
 
 # Current Status
 
-**Current Release:** **v0.3.0**
+**Current Release:** **v0.4.0**
 
 ## Completed
 
