@@ -84,37 +84,45 @@ The goal of this project is to build a production-inspired network that goes bey
 
 # Current Status
 
-**Current Release:** **v0.4.0**
+**Current Release:** **v0.5.0**
 
 ## Completed
 
-- ✅ Enterprise topology created
-- ✅ VLAN implementation
-- ✅ Trunk configuration
-- ✅ Inter-VLAN routing
-- ✅ Management VLAN
-- ✅ Secure SSH management
-- ✅ Static routing
-- ✅ WAN connectivity
-- ✅ Internet access
-- ✅ Ubuntu Server deployment
-- ✅ Enterprise DHCP Server
-- ✅ Enterprise DNS Server
-- ✅ Apache Web Server
-- ✅ Samba File Server
-- ✅ Layer 3 EtherChannel (LACP)
-- ✅ HSRP Gateway Redundancy
-- ✅ Dual-homed Access Layer
+### Campus Networking
 
+- ✅ Enterprise topology created         - ✅ VLAN implementation
+- ✅ Trunk configuration                 - ✅ Inter-VLAN routing
+- ✅ Static routing                      - ✅ OSPF
+- ✅ Layer 3 EtherChannel (LACP)         - ✅ HSRP Gateway Redundancy
+- ✅ Dual-homed Access Layer             - ✅ WAN connectivity
+- ✅ Internet access
+
+### Infrastructure Services
+
+- ✅ Ubuntu Server deployment            - ✅ Enterprise DHCP Server
+- ✅ Enterprise DNS Server               - ✅ Apache Web Server
+- ✅ Samba File Server
+
+### Management
+
+- ✅ Management VLAN                     - ✅ Secure SSH management
+
+### Access Layer Security
+
+- ✅ PortFast                            - ✅ BPDU Guard
+- ✅ DHCP Snooping                       - ✅ Dynamic ARP Inspection (DAI)
+- ✅ Port Security
+
+---
 
 ## In Progress
 
-- 🔄 Enterprise Security
-  - DHCP Snooping
-  - Dynamic ARP Inspection (DAI)
-  - Port Security
-  - BPDU Guard
-  - Storm Control
+- 🔄 Enterprise Edge Security
+  - Cisco ASA Firewall
+  - Security Zones
+  - Stateful Firewall Policies
+  - NAT Refinement
+
 ---
 
 # Project Structure

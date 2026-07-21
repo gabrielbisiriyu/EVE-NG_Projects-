@@ -20,9 +20,13 @@ no aaa new-model
 !
 !
 !
+ip arp inspection vlan 10,20,30,40
 !
 !
 !
+ip dhcp snooping vlan 10,20,30,40,50,95
+no ip dhcp snooping information option
+ip dhcp snooping
 no ip domain-lookup
 ip domain-name atlas.local
 ip cef
@@ -31,6 +35,8 @@ no ipv6 cef
 !
 !
 spanning-tree mode pvst
+spanning-tree portfast edge default
+spanning-tree portfast edge bpduguard default
 spanning-tree extend system-id
 !
 !
@@ -52,96 +58,212 @@ interface Ethernet0/0
  switchport trunk encapsulation dot1q
  switchport trunk native vlan 99
  switchport mode trunk
+ ip arp inspection trust
+ ip dhcp snooping trust
 !
 interface Ethernet0/1
  switchport trunk allowed vlan 10,20,30,40,95
  switchport trunk encapsulation dot1q
  switchport trunk native vlan 99
  switchport mode trunk
+ ip arp inspection trust
+ ip dhcp snooping trust
 !
 interface Ethernet0/2
  switchport access vlan 30
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet0/3
  switchport access vlan 30
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet1/0
  switchport access vlan 30
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet1/1
  switchport access vlan 30
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet1/2
  switchport access vlan 30
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet1/3
  switchport access vlan 30
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet2/0
  switchport access vlan 40
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet2/1
  switchport access vlan 40
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet2/2
  switchport access vlan 40
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet2/3
  switchport access vlan 40
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet3/0
  switchport access vlan 40
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet3/1
  switchport access vlan 40
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet3/2
  switchport access vlan 40
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet3/3
  switchport access vlan 40
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet4/0
  switchport access vlan 20
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet4/1
  switchport access vlan 20
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet4/2
  switchport access vlan 20
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet4/3
  switchport access vlan 20
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet5/0
  switchport access vlan 10
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet5/1
+ switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet5/2
+ switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Ethernet5/3
  switchport access vlan 95
  switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ ip dhcp snooping limit rate 15
 !
 interface Serial6/0
  no ip address

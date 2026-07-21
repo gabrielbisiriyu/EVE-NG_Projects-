@@ -1,5 +1,21 @@
 ﻿# Changelog
 
+
+## Version 0.5.0
+
+### Enterprise Access Layer Security
+
+- Enabled PortFast on end-device interfaces
+- Enabled BPDU Guard on access ports
+- Implemented DHCP Snooping
+- Configured trusted and untrusted DHCP ports
+- Applied DHCP Snooping rate limiting on user-facing interfaces
+- Implemented Dynamic ARP Inspection (DAI) on user VLANs
+- Configured Port Security using sticky MAC learning
+- Configured secure MAC address limits and violation actions
+
+---
+
 ## Version 0.4.0
 
 ### Campus Core Redundancy & High Availability
