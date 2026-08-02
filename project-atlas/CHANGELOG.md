@@ -3,6 +3,23 @@
 
 ## Version 0.5.0
 
+### Enterprise Edge Security & Branch Expansion
+
+- Expanded the enterprise topology by deploying the complete Branch Office infrastructure
+- Implemented Branch access, distribution, and edge routing architecture
+- Deployed Cisco ASA firewalls at both Headquarters and Branch sites
+- Configured inside and outside security zones
+- Implemented PAT for Internet access
+- Configured static routing between routers and firewalls
+- Deployed a route-based Site-to-Site IPsec VPN using Virtual Tunnel Interfaces (VTI)
+- Implemented NAT exemption for VPN traffic
+- Enabled dynamic route exchange across the VPN using OSPF
+- Verified secure end-to-end communication between Headquarters and Branch networks
+
+---
+
+## Version 0.5.0
+
 ### Enterprise Access Layer Security
 
 - Enabled PortFast on end-device interfaces
@@ -32,7 +49,6 @@
 - Added management IP addresses for new infrastructure devices
 
 ---
-
 
 ## Version 0.3.0
 

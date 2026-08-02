@@ -88,40 +88,55 @@ The goal of this project is to build a production-inspired network that goes bey
 
 ## Completed
 
-### Campus Networking
-
-- ✅ Enterprise topology created         - ✅ VLAN implementation
-- ✅ Trunk configuration                 - ✅ Inter-VLAN routing
-- ✅ Static routing                      - ✅ OSPF
-- ✅ Layer 3 EtherChannel (LACP)         - ✅ HSRP Gateway Redundancy
-- ✅ Dual-homed Access Layer             - ✅ WAN connectivity
+## Campus & Branch Networking
+- ✅ Headquarters infrastructure deployment
+- ✅ Branch office infrastructure deployment
+- ✅ Enterprise VLAN implementation
+- ✅ Trunk configuration
+- ✅ Inter-VLAN routing
+- ✅ Static routing
+- ✅ OSPF
+- ✅ Layer 3 EtherChannel (LACP)
+- ✅ HSRP Gateway Redundancy
+- ✅ Dual-homed access layer
+- ✅ WAN connectivity
 - ✅ Internet access
 
-### Infrastructure Services
-
-- ✅ Ubuntu Server deployment            - ✅ Enterprise DHCP Server
-- ✅ Enterprise DNS Server               - ✅ Apache Web Server
+## Infrastructure Services
+- ✅ Ubuntu Server deployment
+- ✅ Enterprise DHCP Server
+- ✅ Enterprise DNS Server
+- ✅ Apache Web Server
 - ✅ Samba File Server
 
-### Management
+## Enterprise Management
+- ✅ Management VLAN
+- ✅ Secure SSH Management
 
-- ✅ Management VLAN                     - ✅ Secure SSH management
-
-### Access Layer Security
-
-- ✅ PortFast                            - ✅ BPDU Guard
-- ✅ DHCP Snooping                       - ✅ Dynamic ARP Inspection (DAI)
+## Access Layer Security
+- ✅ PortFast
+- ✅ BPDU Guard
+- ✅ DHCP Snooping
+- ✅ Dynamic ARP Inspection (DAI)
 - ✅ Port Security
+
+## Enterprise Edge Security
+- ✅ Cisco ASA Firewall deployment
+- ✅ Security zone configuration
+- ✅ NAT/PAT
+- ✅ Route-Based Site-to-Site IPsec VPN (IKEv2)
+- ✅ OSPF route exchange across the VPN
+- ✅ Secure communication between Headquarters and Branch sites
+
 
 ---
 
 ## In Progress
 
-- 🔄 Enterprise Edge Security
-  - Cisco ASA Firewall
-  - Security Zones
-  - Stateful Firewall Policies
-  - NAT Refinement
+- 🔄 Network Automation
+  - Deploy Ansible Control Node
+  - Automate Multi-Device Configuration
+  - Automate Configuration Backups
 
 ---
 

@@ -10,7 +10,7 @@ boot-start-marker
 boot-end-marker
 !
 !
-enable secret 5 $1$qTny$jNlKUoIYoiRaOl0eAxVa/0
+enable secret 5 $1$xDE3$UYIWFQVEkJAvbeOAap1EZ0
 !
 no aaa new-model
 !
@@ -77,17 +77,18 @@ interface Loopback0
  ip ospf 1 area 0
 !
 interface Ethernet0/0
- ip address 10.255.255.2 255.255.255.252
+ ip address 10.10.255.2 255.255.255.252
  ip ospf 1 area 0
  duplex auto
 !
 interface Ethernet0/1
- ip address 10.255.255.6 255.255.255.252
+ ip address 10.10.255.6 255.255.255.252
  ip ospf 1 area 0
  duplex auto
 !
 interface Ethernet0/2
- ip address dhcp
+ description #TO_hq-fw#
+ ip address 10.10.255.14 255.255.255.252
  duplex auto
 !
 interface Ethernet0/3
@@ -136,12 +137,15 @@ interface Serial2/3
  serial restart-delay 0
 !
 router ospf 1
+ default-information originate
 !
 ip forward-protocol nd
 !
 !
 no ip http server
 no ip http secure-server
+ip route 0.0.0.0 0.0.0.0 10.255.254.1
+ip route 0.0.0.0 0.0.0.0 10.10.255.13
 !
 ip access-list standard management
  permit 10.10.95.0 0.0.0.255
