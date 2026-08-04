@@ -73,7 +73,7 @@ The goal of this project is to build a production-inspired network that goes bey
 
 ## VPN
 
-- GRE over IPsec
+- Route-Based Site-to-Site IPSec VPN
 
 ## Automation
 
@@ -84,7 +84,7 @@ The goal of this project is to build a production-inspired network that goes bey
 
 # Current Status
 
-**Current Release:** **v0.5.0**
+**Current Release:** **v0.6.0**
 
 ## Completed
 
