@@ -10,6 +10,20 @@ The goal of this project is to build a production-inspired network that goes bey
 
 ---
 
+# Skills Demonstrated
+
+**Networking:** VLANs & Trunking · Inter-VLAN Routing · OSPF · EtherChannel (LACP) · HSRP · Static Routing · WAN Connectivity
+
+**Security:** ACLs · NAT/PAT · Port Security · DHCP Snooping · Dynamic ARP Inspection · Site-to-Site IPsec VPN (IKEv2) · Cisco ASA Firewall
+
+**Systems Administration:** Linux (Ubuntu Server) · DHCP · DNS · Apache · Samba -Syslog
+
+**Automation:** Ansible 
+
+**Tools & Platforms:** EVE-NG · Cisco IOL · Git/GitHub
+
+---
+
 # Current Topology
 
 ![Current Topology](screenshots/topology/latest-topology.png)
