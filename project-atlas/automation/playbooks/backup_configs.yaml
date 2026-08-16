@@ -1,0 +1,38 @@
+---
+- name: Project Atlas Configuration Backup
+  hosts: routers
+  gather_facts: false
+
+  vars:
+    current_date: "{{ now(fmt='%Y-%m-%d') }}"
+    backup_dir: "backups/{{ current_date }}"
+
+  tasks:
+    # 1. ENSURE DESTINATION DIRECTORY EXISTS
+    - name: Create dated backup directory
+      ansible.builtin.file:
+        path: "{{ backup_dir }}"
+        state: directory
+        mode: '0755'
+      delegate_to: localhost
+      run_once: true
+
+    # 2. COLLECT RUNNING CONFIGURATION
+    - name: Collect running configuration
+      cisco.ios.ios_command:
+        commands:
+          - show running-config
+      register: running_config
+      changed_when: false
+
+    # 3. SAVE CONFIGURATION TO BACKUP FILE
+    - name: Save running configuration
+      ansible.builtin.copy:
+        content: "{{ running_config.stdout[0] }}"
+        dest: "{{ backup_dir }}/{{ inventory_hostname }}_running-config.cfg"
+      delegate_to: localhost
+
+    # 4. REPORT BACKUP
+    - name: Report successful backup
+      ansible.builtin.debug:
+        msg: "{{ inventory_hostname }} - Configuration backup saved successfully."

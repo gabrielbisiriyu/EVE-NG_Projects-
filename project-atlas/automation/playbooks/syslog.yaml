@@ -1,0 +1,43 @@
+---
+- name: Configure Project Atlas Syslog
+  hosts: network_devices
+  gather_facts: false
+
+  vars:
+    syslog_server: "10.10.50.10"
+    syslog_severity: "notifications"
+
+  tasks:
+
+
+    # 1. CONFIGURE CENTRALIZED SYSLOG
+
+    - name: Configure Syslog server
+      cisco.ios.ios_config:
+        lines:
+          - "logging host {{ syslog_server }}"
+          - "logging trap {{ syslog_severity }}"
+
+
+    # 2. SAVE CONFIGURATION
+
+    - name: Save running configuration
+      cisco.ios.ios_config:
+        save_when: modified
+
+
+    # 3. VERIFY SYSLOG CONFIGURATION
+
+    - name: Check Syslog configuration
+      cisco.ios.ios_command:
+        commands:
+          - "show running-config | include logging"
+      register: syslog_config
+      changed_when: false
+
+
+    # 4. DISPLAY RESULT
+
+    - name: Display Syslog configuration
+      ansible.builtin.debug:
+        var: syslog_config.stdout_lines

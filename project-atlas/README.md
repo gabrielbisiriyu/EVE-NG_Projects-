@@ -84,7 +84,7 @@ The goal of this project is to build a production-inspired network that goes bey
 
 # Current Status
 
-**Current Release:** **v0.6.0**
+**Current Release:** **v0.7.0**
 
 ## Completed
 
@@ -128,15 +128,20 @@ The goal of this project is to build a production-inspired network that goes bey
 - ✅ OSPF route exchange across the VPN
 - ✅ Secure communication between Headquarters and Branch sites
 
+## Network Automation
+- ✅ Ansible Control Node deployment
+- ✅ Automated NTP configuration
+- ✅ Centralized Syslog configuration
+- ✅ Automated Cisco configuration backups
 
 ---
 
 ## In Progress
 
 - 🔄 Network Automation
-  - Deploy Ansible Control Node
-  - Automate Multi-Device Configuration
-  - Automate Configuration Backups
+  - SNMP Monitoring
+  - AAA / TACACS+ Administration
+  - Additional Network Automation
 
 ---
 
@@ -149,7 +154,6 @@ project-atlas/
 ├── configs/
 ├── docs/
 ├── screenshots/
-├── servers/
 ├── CHANGELOG.md
 └── README.md
 ```
