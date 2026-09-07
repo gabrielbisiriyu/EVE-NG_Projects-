@@ -2,7 +2,7 @@
 version 15.2
 service timestamps debug datetime msec
 service timestamps log datetime msec
-service password-encryption
+no service password-encryption
 service compress-config
 !
 hostname hq-dsw2
@@ -14,7 +14,19 @@ boot-end-marker
 enable secret 5 $1$7/OF$ZP82Eq0sP1aONhMubuW4A.
 !
 username ennygaebs secret 5 $1$1Yb7$ru8.bz7H2n/6XbFVmnbPs.
-no aaa new-model
+aaa new-model
+!
+!
+aaa authentication login default group tacacs+ local
+aaa authorization exec default group tacacs+ local
+aaa accounting commands 15 default start-stop group tacacs+
+!
+!
+!
+!
+!
+!
+aaa session-id common
 !
 !
 !
@@ -31,7 +43,7 @@ no ipv6 cef
 !
 spanning-tree mode pvst
 spanning-tree extend system-id
-spanning-tree vlan 50 priority 28672
+spanning-tree vlan 10,20,30,40,50,95 priority 28672
 !
 !
 !
@@ -49,11 +61,11 @@ spanning-tree vlan 50 priority 28672
 !
 interface Port-channel1
  no switchport
- ip address 10.255.255.10 255.255.255.252
+ ip address 10.10.255.10 255.255.255.252
 !
 interface Ethernet0/0
  no switchport
- ip address 10.255.255.5 255.255.255.252
+ ip address 10.10.255.5 255.255.255.252
 !
 interface Ethernet0/1
  switchport trunk allowed vlan 50,95
@@ -162,6 +174,7 @@ interface Vlan95
  standby 95 ip 10.10.95.1
 !
 router ospf 1
+ router-id 13.13.13.13
  passive-interface Vlan10
  passive-interface Vlan20
  passive-interface Vlan30
@@ -177,7 +190,6 @@ ip forward-protocol nd
 ip http server
 ip http secure-server
 !
-ip route 0.0.0.0 0.0.0.0 10.255.255.6
 ip ssh version 2
 ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
 ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
@@ -186,6 +198,13 @@ ip access-list standard management
  permit 10.10.95.0 0.0.0.255
 !
 !
+logging trap notifications
+logging host 10.10.50.10
+!
+!
+tacacs server ATLAS-TACACS
+ address ipv4 10.10.50.10
+ key segelulu96
 !
 !
 !
@@ -206,14 +225,13 @@ banner motd ^CC
 line con 0
  password 7 095F4B0E1C09021E1E
  logging synchronous
- login
 line aux 0
 line vty 0 4
  access-class management in
  exec-timeout 5 0
- login local
  transport input ssh
 !
+ntp server 10.10.50.10
 !
 !
 end

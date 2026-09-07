@@ -2,19 +2,17 @@
 
 ## Overview
 
-Project Atlas is a realistic enterprise network built in EVE-NG to demonstrate practical networking, Linux server administration, network security, and automation skills.
+Project Atlas is a production-inspired enterprise network built in EVE-NG to demonstrate practical network engineering, Linux infrastructure, network security, and network automation skills.
 
-The project simulates the design, deployment, and operation of a modern enterprise network using Cisco IOL devices, Ubuntu Server, and enterprise networking best practices.
-
-The goal of this project is to build a production-inspired network that goes beyond CCNA-level configuration while remaining practical, well documented, and interview-ready.
+The project simulates a resilient multi-site enterprise environment using Cisco IOL devices, a Cisco ASA firewall, and Ubuntu Server infrastructure services. The network has been developed incrementally, with configurations, implementation documentation, validation screenshots, and project milestones maintained throughout development.
 
 ---
 
-# Skills Demonstrated
+## Skills Demonstrated
 
 **Networking:** VLANs & Trunking · Inter-VLAN Routing · OSPF · EtherChannel (LACP) · HSRP · Static Routing · WAN Connectivity
 
-**Security:** ACLs · NAT/PAT · Port Security · DHCP Snooping · Dynamic ARP Inspection · Site-to-Site IPsec VPN (IKEv2) · Cisco ASA Firewall
+**Security:** ACLs · NAT/PAT · Port Security · DHCP Snooping · Dynamic ARP Inspection · Site-to-Site IPsec VPN · Cisco ASA Firewall - TACACS+ authentication
 
 **Systems Administration:** Linux (Ubuntu Server) · DHCP · DNS · Apache · Samba -Syslog
 
@@ -24,7 +22,7 @@ The goal of this project is to build a production-inspired network that goes bey
 
 ---
 
-# Current Topology
+## Current Topology
 
 ![Current Topology](screenshots/topology/latest-topology.png)
 
@@ -32,165 +30,105 @@ The goal of this project is to build a production-inspired network that goes bey
 
 ---
 
-# Technologies
+## Technologies
 
-### Networking
-
-- Cisco IOL Layer 2
-- Cisco IOL Layer 3
 - EVE-NG
-
-### Servers
-
-- Ubuntu Server
-
-### Security
-
+- Cisco IOL Layer 2 & Layer 3
 - Cisco ASA Firewall
-
-### Automation
-
-- Python
+- Ubuntu Server
 - Ansible
 
----
+## Network Infrastructure
 
-# Enterprise Features
+The enterprise topology includes:
 
-## Core Networking
-
-- VLANs
-- Trunking
-- Inter-VLAN Routing
-- Static Routing
+- VLANs and 802.1Q trunking
+- Inter-VLAN routing
+- Static routing
 - OSPF
-- EtherChannel
-- HSRP
+- Layer 3 EtherChannel using LACP
+- HSRP gateway redundancy
+- Dual-homed access layer
+- WAN connectivity
+- Internet connectivity
+- NAT/PAT
 
 ## Infrastructure Services
 
-- DHCP
-- DNS
+Ubuntu Server node provides infrastructure services to Windows and Linux clients and Cisco network devices.
+
+Implemented services include:
+
+- ISC DHCP Server
+- BIND9 DNS
 - Apache Web Server
 - Samba File Server
+- Centralized Syslog
+- TACACS+ AAA
 
-## Security
+The server environment also provides a practical platform for developing Linux administration skills, including users, permissions, services, networking, configuration management, and troubleshooting.
 
-- SSH Management
-- Management VLAN
-- ACLs
-- NAT/PAT
-- DHCP Snooping
-- Dynamic ARP Inspection
-- Port Security
+## Network Security
+
+Security controls implemented across the environment include:
+
 - Cisco ASA Firewall
-
-## VPN
-
-- Route-Based Site-to-Site IPSec VPN
-
-## Automation
-
-- Python Automation
-- Ansible Playbooks
-
----
-
-# Current Status
-
-**Current Release:** **v0.7.0**
-
-## Completed
-
-## Campus & Branch Networking
-- ✅ Headquarters infrastructure deployment
-- ✅ Branch office infrastructure deployment
-- ✅ Enterprise VLAN implementation
-- ✅ Trunk configuration
-- ✅ Inter-VLAN routing
-- ✅ Static routing
-- ✅ OSPF
-- ✅ Layer 3 EtherChannel (LACP)
-- ✅ HSRP Gateway Redundancy
-- ✅ Dual-homed access layer
-- ✅ WAN connectivity
-- ✅ Internet access
-
-## Infrastructure Services
-- ✅ Ubuntu Server deployment
-- ✅ Enterprise DHCP Server
-- ✅ Enterprise DNS Server
-- ✅ Apache Web Server
-- ✅ Samba File Server
-
-## Enterprise Management
-- ✅ Management VLAN
-- ✅ Secure SSH Management
-
-## Access Layer Security
-- ✅ PortFast
-- ✅ BPDU Guard
-- ✅ DHCP Snooping
-- ✅ Dynamic ARP Inspection (DAI)
-- ✅ Port Security
-
-## Enterprise Edge Security
-- ✅ Cisco ASA Firewall deployment
-- ✅ Security zone configuration
-- ✅ NAT/PAT
-- ✅ Route-Based Site-to-Site IPsec VPN (IKEv2)
-- ✅ OSPF route exchange across the VPN
-- ✅ Secure communication between Headquarters and Branch sites
+- Access Control Lists (ACLs)
+- Management VLAN
+- SSH device management
+- Port Security
+- DHCP Snooping
+- Dynamic ARP Inspection (DAI)
+- PortFast
+- BPDU Guard
+- NAT/PAT
+- Route-based Site-to-Site IPsec VPN using IKEv2
+- OSPF route exchange across the VPN
+- Centralized TACACS+ authentication and authorization for Cisco device administration
 
 ## Network Automation
-- ✅ Ansible Control Node deployment
-- ✅ Automated NTP configuration
-- ✅ Centralized Syslog configuration
-- ✅ Automated Cisco configuration backups
+
+Ansible is used to automate repetitive network administration tasks across the Cisco infrastructure.
+
+Completed automation includes:
+
+- Automated NTP configuration
+- Centralized Syslog configuration
+- Automated Cisco AAA / TACACS+ configuration
+- Automated Cisco running-configuration backups
+- Date-based configuration backup storage
+- Network device command execution and configuration management
+
+The automation work is developed incrementally alongside the network infrastructure rather than treating automation as a separate exercise.
 
 ---
 
-## In Progress
+## Monitoring & Data Analysis
 
-- 🔄 Network Automation
-  - SNMP Monitoring
-  - AAA / TACACS+ Administration
-  - Additional Network Automation
+Monitoring and network data analysis will be developed separately from the core Project Atlas infrastructure.
+
+A companion repository will focus on collecting, processing, analysing, and visualising selected network data generated by Project Atlas using technologies such as:
+
+- Python
+- Pandas
+- matplotlib
+
+
+This separation keeps Project Atlas focused on **network infrastructure, services, security, and automation**, while the companion repository focuses on **network monitoring, data analysis, and visualisation**.
+
+> Companion analytics repository: *Coming soon*
 
 ---
 
-# Project Structure
+## Project Structure
 
-```
+```text
 project-atlas/
 │
-├── automation/
-├── configs/
-├── docs/
-├── screenshots/
-├── CHANGELOG.md
-└── README.md
-```
-
----
-
-# Documentation
-
-Additional documentation can be found in the **docs/** directory.
-
-- VLAN Plan
-- IP Addressing Plan
-
----
-
-# Project Goals
-
-- Build a realistic enterprise campus network.
-- Apply industry-standard network design principles.
-- Document every major implementation milestone.
-
----
-
-# Project Status
-
-🚧 Active Development
+├── automation/       # Ansible playbooks and automation files
+├── configs_HQ/       # Headquarters device configurations
+├── configs_BR/       # Branch device configurations
+├── docs/             # Technical implementation documentation
+├── screenshots/      # Topology and validation screenshots
+├── CHANGELOG.md      # Project milestones and changes
+└── README.md         # Project overview

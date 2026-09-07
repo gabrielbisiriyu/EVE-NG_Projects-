@@ -13,6 +13,13 @@
 - Implemented automated Cisco running-configuration backups
 - Added date-based configuration backup directories
 - Verified successful configuration retrieval and backup storage
+- Deployed TACACS+ authentication server on Ubuntu Server
+- Configured Cisco AAA using TACACS+
+- Implemented centralized administrator authentication
+- Implemented EXEC authorization through TACACS+
+- Implemented TACACS+ command accounting
+- Automated Cisco AAA/TACACS+ configuration using Ansible
+- Secured TACACS+ credentials using Ansible Vault
 
 ----
 

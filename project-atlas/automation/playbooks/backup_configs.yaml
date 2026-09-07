@@ -1,6 +1,6 @@
 ---
 - name: Project Atlas Configuration Backup
-  hosts: routers
+  hosts: network_devices
   gather_facts: false
 
   vars:

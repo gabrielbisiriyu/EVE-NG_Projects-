@@ -14,7 +14,19 @@ boot-end-marker
 enable secret 5 $1$NVYO$1Jx7qGoQJRkmj7E9.JlLy.
 !
 username ennygaebs secret 5 $1$qmWy$1aLk.B0mTqDSWRRcT.GZN/
-no aaa new-model
+aaa new-model
+!
+!
+aaa authentication login default group tacacs+ local
+aaa authorization exec default group tacacs+ local
+aaa accounting commands 15 default start-stop group tacacs+
+!
+!
+!
+!
+!
+!
+aaa session-id common
 !
 !
 !
@@ -295,6 +307,7 @@ ip forward-protocol nd
 ip http server
 ip http secure-server
 !
+ip route 0.0.0.0 0.0.0.0 10.10.95.1
 ip ssh version 2
 ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
 ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
@@ -303,6 +316,13 @@ ip access-list standard management
  permit 10.10.95.0 0.0.0.255
 !
 !
+logging trap notifications
+logging host 10.10.50.10
+!
+!
+tacacs server ATLAS-TACACS
+ address ipv4 10.10.50.10
+ key segelulu96
 !
 !
 !
@@ -321,15 +341,14 @@ banner motd ^C
 ^^C
 !
 line con 0
- password segelulu
+ password 7 04480E010A2D59421C
  logging synchronous
- login
 line aux 0
 line vty 0 4
  access-class management in
- login local
  transport input ssh
 !
+ntp server 10.10.50.10
 !
 !
 end
